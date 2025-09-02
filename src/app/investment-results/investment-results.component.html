@@ -1,20 +1,28 @@
-@if (annualData && annualData.length > 0) {
-<table>
-  <tr>
-    <th>Year</th>
-    <th>Investment Value</th>
-    <th>Interest</th>
-    <th>Total Interest</th>
-    <th>Invested Capital</th>
-  </tr>
-  <tr *ngFor="let data of annualData">
-    <td>{{ data.year }}</td>
-    <td>{{ data.investmentValue | number : "1.2-2" }}</td>
-    <td>{{ data.interest | number : "1.2-2" }}</td>
-    <td>{{ data.totalInterest | number : "1.2-2" }}</td>
-    <td>{{ data.investedCapital | number : "1.2-2" }}</td>
-  </tr>
-</table>
-}@else {
-<p style="text-align: center">No data to display.</p>
-}
+<div class="results-table">
+  @if (annualData && annualData.length > 0) {
+  <table>
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Investment Value</th>
+        <th>Interest</th>
+        <th>Total Interest</th>
+        <th>Invested Capital</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of annualData">
+        <td>{{ data.year }}</td>
+        <td>{{ data.investmentValue | number : "1.2-2" }}</td>
+        <td>{{ data.interest | number : "1.2-2" }}</td>
+        <td>{{ data.totalInterest | number : "1.2-2" }}</td>
+        <td>{{ data.investedCapital | number : "1.2-2" }}</td>
+      </tr>
+    </tbody>
+  </table>
+  } @else {
+  <div class="no-data">
+    <p>No data to display.</p>
+  </div>
+  }
+</div>
