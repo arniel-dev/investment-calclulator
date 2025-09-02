@@ -11,14 +11,6 @@ form {
   display: flex;
   justify-content: space-evenly;
   gap: 1.5rem;
-
-  div {
-    margin: 1.5rem 0rem;
-
-    label {
-      margin: 1rem;
-    }
-  }
 }
 
 label {
