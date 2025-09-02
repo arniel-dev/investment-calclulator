@@ -16,12 +16,14 @@ export class InvestmentService {
 
   constructor() {}
 
-  calculateInvestmentResults(
-    initialInvestment: number,
-    expectedReturn: number,
-    annualInvestment: number,
-    duration: number
-  ) {
+  calculateInvestmentResults(inputData: {
+    initialInvestment: number;
+    expectedReturn: number;
+    annualInvestment: number;
+    duration: number;
+  }) {
+    const { initialInvestment, expectedReturn, annualInvestment, duration } =
+      inputData;
     let data = [];
     let investmentValue = initialInvestment;
 

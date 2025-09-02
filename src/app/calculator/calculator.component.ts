@@ -11,18 +11,18 @@ import { InvestmentService } from '../investment.service';
 })
 export class CalculatorComponent {
   initialInvestment = '';
-  expectedReturn = '';
+  expectedReturn = '5';
   annualInvestment = '';
-  duration = '';
+  duration = '10';
 
   constructor(private investmentService: InvestmentService) {}
 
   calculate() {
-    this.investmentService.calculateInvestmentResults(
-      Number(this.initialInvestment),
-      Number(this.expectedReturn),
-      Number(this.annualInvestment),
-      Number(this.duration)
-    );
+    this.investmentService.calculateInvestmentResults({
+      initialInvestment: Number(this.initialInvestment),
+      expectedReturn: Number(this.expectedReturn),
+      annualInvestment: Number(this.annualInvestment),
+      duration: Number(this.duration),
+    });
   }
 }
