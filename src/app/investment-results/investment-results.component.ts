@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class InvestmentResultsComponent {
   constructor(private investmentService: InvestmentService) {}
-  getAnnualData() {
+  get annualData(): AnnualInvestmentData[] {
     return this.investmentService.getAnnualData();
   }
 }
