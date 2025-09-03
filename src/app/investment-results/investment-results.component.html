@@ -11,18 +11,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let data of annualData">
+      @for (data of annualData; track data.year) {
+      <tr>
         <td>{{ data.year }}</td>
-        <td>{{ data.investmentValue | number : "1.2-2" }}</td>
-        <td>{{ data.interest | number : "1.2-2" }}</td>
-        <td>{{ data.totalInterest | number : "1.2-2" }}</td>
-        <td>{{ data.investedCapital | number : "1.2-2" }}</td>
+        <td>{{ data.investmentValue | currency }}</td>
+        <td>{{ data.interest | currency }}</td>
+        <td>{{ data.totalInterest | currency }}</td>
+        <td>{{ data.investedCapital | currency }}</td>
       </tr>
+      }
     </tbody>
   </table>
   } @else {
   <div class="no-data">
-    <p>No data to display.</p>
+    <p>Please enter some values and press 'Calculate'</p>
   </div>
   }
 </div>
