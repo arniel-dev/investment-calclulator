@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 export interface AnnualInvestmentData {
   year: number;
@@ -12,8 +12,7 @@ export interface AnnualInvestmentData {
   providedIn: 'root',
 })
 export class InvestmentService {
-  private annualData: AnnualInvestmentData[] = [];
-
+  annualData = signal<AnnualInvestmentData[]>([]);
   constructor() {}
 
   calculateInvestmentResults(inputData: {
@@ -44,10 +43,6 @@ export class InvestmentService {
       });
     }
 
-    this.annualData = data;
-  }
-
-  getAnnualData(): AnnualInvestmentData[] {
-    return this.annualData;
+    this.annualData.set(data);
   }
 }

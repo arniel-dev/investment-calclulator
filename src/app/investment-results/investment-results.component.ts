@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, computed, Input, signal } from '@angular/core';
 import { AnnualInvestmentData, InvestmentService } from '../investment.service';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class InvestmentResultsComponent {
   constructor(private investmentService: InvestmentService) {}
-  get annualData(): AnnualInvestmentData[] {
-    return this.investmentService.getAnnualData();
-  }
+
+  annualData = computed(() => {
+    return this.investmentService.annualData();
+  });
 }
