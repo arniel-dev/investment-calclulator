@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InvestmentService } from '../investment.service';
 
@@ -10,19 +10,23 @@ import { InvestmentService } from '../investment.service';
   styleUrl: './calculator.component.css',
 })
 export class CalculatorComponent {
-  initialInvestment = '';
-  expectedReturn = '5';
-  annualInvestment = '';
-  duration = '10';
+  initialInvestment = signal('');
+  expectedReturn = signal('5');
+  annualInvestment = signal('');
+  duration = signal('10');
 
   constructor(private investmentService: InvestmentService) {}
 
   calculate() {
     this.investmentService.calculateInvestmentResults({
-      initialInvestment: Number(this.initialInvestment),
-      expectedReturn: Number(this.expectedReturn),
-      annualInvestment: Number(this.annualInvestment),
-      duration: Number(this.duration),
+      initialInvestment: Number(this.initialInvestment()),
+      expectedReturn: Number(this.expectedReturn()),
+      annualInvestment: Number(this.annualInvestment()),
+      duration: Number(this.duration()),
     });
+    this.initialInvestment.set('');
+    this.expectedReturn.set('5');
+    this.annualInvestment.set('');
+    this.duration.set('10');
   }
 }

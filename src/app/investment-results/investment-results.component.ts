@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { AnnualInvestmentData } from '../investment.service';
+import { Component, Input, signal } from '@angular/core';
+import { AnnualInvestmentData, InvestmentService } from '../investment.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,8 +7,11 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './investment-results.component.html',
-  styleUrl: './investment-results.component.css'
+  styleUrl: './investment-results.component.css',
 })
 export class InvestmentResultsComponent {
-  @Input({ required: true }) annualData: AnnualInvestmentData[] = [];
+  constructor(private investmentService: InvestmentService) {}
+  getAnnualData() {
+    return this.investmentService.getAnnualData();
+  }
 }

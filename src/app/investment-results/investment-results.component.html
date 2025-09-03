@@ -1,5 +1,5 @@
 <div class="results-table">
-  @if (annualData && annualData.length > 0) {
+  @if (getAnnualData() && getAnnualData().length > 0) {
   <table>
     <thead>
       <tr>
@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (data of annualData; track data.year) {
+      @for (data of getAnnualData(); track data.year) {
       <tr>
         <td>{{ data.year }}</td>
         <td>{{ data.investmentValue | currency }}</td>

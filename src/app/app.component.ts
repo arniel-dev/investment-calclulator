@@ -10,10 +10,4 @@ import { AnnualInvestmentData, InvestmentService } from './investment.service';
   templateUrl: './app.component.html',
   imports: [HeaderComponent, CalculatorComponent, InvestmentResultsComponent],
 })
-export class AppComponent {
-  constructor(private investmentService: InvestmentService) {}
-
-  getAnnualData() {
-    return this.investmentService.getAnnualData();
-  }
-}
+export class AppComponent {}
